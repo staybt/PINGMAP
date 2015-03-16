@@ -1,0 +1,173 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face { 
+	font-family: "CaneletterSans"; 	
+	src:url('font/CaneletterSans.ttf');
+}
+
+* {
+	margin: 0;
+}
+
+html, body {
+	height: 100%;
+	background-color:#F6F6F6;
+	font-family:"Trebuchet MS", Arial, Helvetica;
+}
+
+header {
+	font-family:"CaneletterSans", Trebuchet MS, Arial, Helvetica;
+	color:#FFF;
+	width:100%;
+	height:150px;
+	background-color:rgba(45,190,238,0.5);
+	box-shadow: 0 0 5px rgba( 0, 0, 0, 0.5), 0 -1px 0 rgba( 255, 255, 255, 0.4);
+	
+}
+
+header h1{
+	font-family:"CaneletterSans", Trebuchet MS, Arial, Helvetica;
+	text-shadow: 0 0 5px rgba( 0, 0, 0, 0.5), 0 -1px 0 rgba( 255, 255, 255, 0.4);
+	text-align:center;
+	font-size:4em;
+	float:left;
+	line-height:150px;
+	margin-left: 5%;
+	
+}
+
+#Global {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -100px; 
+}
+
+#push {
+	height: 100px; 
+}
+
+footer {
+	height: 100px; 
+	font-family:"CaneletterSans", Trebuchet MS, Arial, Helvetica;
+	color:#FFF;
+	width:100%;
+	background-color:rgba(45,190,238,0.5);
+	display:block;
+	box-shadow: 0 0 5px rgba( 0, 0, 0, 0.5), 0 -1px 0 rgba( 255, 255, 255, 0.4);
+	position:relative;
+
+	
+}
+
+#map{
+	height:450px;
+	text-align:center;
+	border-radius : 10px;
+	box-shadow: 0 0 5px rgba( 0, 0, 0, 0.5), 0 -1px 0 rgba( 255, 255, 255, 0.4);
+}
+
+#detourage {
+	margin-top : 50px;
+	height:100%;
+	margin-right : 5%;
+	margin-left : 5%;
+	margin-bottom :20px;
+	border-radius : 10px;
+	background-color: #FFF;
+	padding : 20px;
+	box-shadow: 0 0 5px rgba( 0, 0, 0, 0.5), 0 -1px 0 rgba( 255, 255, 255, 0.4);
+}
+
+#info {
+	margin : 20px 5% 20px 5%;
+	font-weight : bold;
+}
+
+
+
+#pays {
+	display:inline-block;
+	margin-top:20px;
+	border-radius: 5px;
+	font-weight : bold;
+	padding:10px;
+	box-shadow: 0 0 5px rgba( 0, 0, 0, 0.5), 0 -1px 0 rgba( 255, 255, 255, 0.4);
+}
+
+#pays legend {
+	color:#000;
+}
+
+#Fr, #Ca, #It, #Be, #Jap, #Loc, #Plan {
+	text-align:center;
+	background-color:#298DF3;
+	box-shadow: 0 0 5px rgba( 0, 0, 0, 0.5), 0 -1px 0 rgba( 255, 255, 255, 0.4);
+	display:inline-block;
+	padding : 15px;
+	border-radius : 10px;
+	margin-right : 20px;
+	color :#FFF;
+}
+
+#Fr:hover, #Ca:hover, #It:hover, #Be:hover, #Jap:hover, #Loc:hover, #Plan:hover {
+	text-align:center;
+	background-color:#298DF3;
+	box-shadow: 0 0 20px rgba( 0, 0, 0, 0.5), 0 -1px 0 rgba( 255, 255, 255, 0.4);
+	display:inline-block;
+	padding : 15px;
+	border-radius : 10px;
+	margin-right : 20px;
+	color :#FFF;
+}
+
+
+#desc {
+	
+	display:inline-block;
+	float:right;
+	margin-top:25px;
+	margin-right:20px;
+	font-weight:bold;
+}
+
+.fond{
+	width:100%;
+	background-image:url(photo/nuage.jpg);
+}
+
+#credits {
+	font-family:"Trebuchet MS", Arial, Helvetica;
+	position:absolute;
+	bottom:5px;
+	left:50%;
+	margin-left:-200px;
+}
+
+#connexionForm {
+	
+	display:block;
+	float:right;
+}
+
+header label {
+	padding:5px;
+}
+
+.bouton {
+	border-radius:5px;
+}
+
+#connexion {
+	box-shadow: 0 0 5px rgba( 0, 0, 0, 0.5), 0 -1px 0 rgba( 255, 255, 255, 0.4);
+	font-family:"Trebuchet MS", Arial, Helvetica;
+	border-radius:10px;
+	border-color:#FFF;
+	border:solid 2px;
+	float:right;
+	margin-right: 5%;
+	margin-top:10px;
+}
+
+

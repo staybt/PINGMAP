@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+	<link rel="stylesheet" type="text/css" href="Style/style.css"/>
+	
+	<script type="text/javascript" src="js/script.js"></script>
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/connexion.js"></script>
+	
+	
+	<title> Oukilé ?</title>
+</head>
+
+<body id="body" onload="Map()"> 
+
+	<div id="Global"> 
+	
+		<div class="fond">
+			<header>
+				<h1> OùKilé ?</h1>
+				
+				<fieldset id="connexion">
+					<legend> Connexion </legend>
+					
+					<form name="connexionForm" id="connexionForm" action="#"> 
+						<span id="erreur"></span>
+		 
+<!--						<script type="text/javascript" src="js/feCo.js" ></script> -->
+                        <label for="login">Nom d'utilisateur :</label> </br>
+						<input type="text" name="login" id="login" /> </br>
+		 
+						<label for="pass">Mot de passe :</label> </br>
+						<input type="password" name="pass" id="pass" /> 
+		 
+						<input type="submit" value="Je me connecte" class="bouton" />
+					</form>
+				</fieldset>
+			
+			</header>
+			
+		</div>
+		
+		<div id="main">
+			
+			<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+			
+			<div id="detourage">
+				<div id="map"></div> <!-- Affichage map -->
+				
+				<fieldset id="pays">
+					<legend> Faites nous glisser</legend>
+						
+					<div id="Fr">
+						<p>France</p>
+					</div>
+
+					<div id="Ca">
+						<p>Canada</p>
+					</div>
+
+					<div id="It">
+						<p>Italie</p>
+					</div>
+
+					<div id="Be">
+						<p>Belgique</p>
+					</div>
+
+					<div id="Jap">
+						<p>Japon</p>
+					</div>
+
+					<div id="Loc">
+						<p>Location (Gps)</p>
+					</div>
+
+					<div id="Plan">
+						<p>Vue initiale</p>
+					</div>	
+				</fieldset>
+						
+				<div id="desc"></div>	
+				
+			</div>
+			
+			<p id="info"> Cliquer pour afficher vos coordonées: 
+				<script type="text/javascript" src="js/géoloc.js"></script>
+				<button onclick="getLocation()">Où suis-je ?</button>
+			</p>
+			
+			<script type="text/javascript" src="js/dragndrop.js"></script>	
+			
+		</div>
+		
+		<div id="push"></div> 
+		
+	</div>
+	
+	<div class="fond">
+		<footer>
+			<div id="credits" align="center">
+				<p>Copyright &copy; 2014 Brunet | Oùkilé ? </p>
+			</div>
+		</footer>
+	</div>
+	
+</body>
+</html>
