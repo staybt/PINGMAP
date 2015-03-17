@@ -1,5 +1,5 @@
 // JavaScript Document
-var lat, long, latL, longL, country, desc, test;
+var lat, long, latL, longL, country, desc, test, layer, geojson;
 desc = document.getElementById("desc");
 
 
@@ -14,6 +14,27 @@ function getLoc(){
 
 getLoc();
 
+function highlightFeature(e) {
+    layer = e.target;
+
+    layer.setStyle({
+        weight: 5,
+        color: '#666',
+        dashArray: '',
+        fillOpacity: 0.7
+    });
+
+    if (!L.Browser.ie && !L.Browser.opera) {
+        layer.bringToFront();
+    }
+}
+
+
+function resetHighlight(e) {
+    geojson.resetStyle(e.target);
+}
+
+
 $(function() {	
 $( "#Fr, #Ca, #It, #Be, #Jap, #Loc, #Plan").draggable({ revert: true});
 $( "#map").droppable({
@@ -26,7 +47,7 @@ if(ui.draggable.attr('id') == 'Fr'){
 		url: "http://nominatim.openstreetmap.org/search",
 		dataType: 'jsonp',
 		jsonpCallback: 'data',
-		data: {polygon: 1, format: "json", limit: 1,country: "France",json_callback: 'data' },
+		data: {format: "json", limit: 1,country: "France",json_callback: 'data', polygon_geojson:1}, //nouvelle ligne détourage
 		error: function(xhr, status, error) {
 		alert("ERROR "+error);
 		},
@@ -37,11 +58,20 @@ if(ui.draggable.attr('id') == 'Fr'){
 			marker.openPopup();
 			country = data[0].display_name;
 			lat = data[0].lat;
-			long = data[0].lon;
-			if(lat != null && long != null){
+			longi = data[0].lon;
+			
+			if (layer != null){
+				map.removeLayer(layer);
+			}
+			
+			geojson = L.geoJson(data[0].geojson);
+			layer = geojson.addTo(map); //nouvelle ligne détourage
+			
+			
+			if(lat != null && longi != null){
 				desc.innerHTML = "Pays: " + country;
 				desc.innerHTML += "<br/> Latitude: " + lat;
-				desc.innerHTML += "<br/> Longitude: " + long;
+				desc.innerHTML += "<br/> Longitude: " + longi;
 			}
 		}
 	});
@@ -56,7 +86,7 @@ $.ajax({
 		url: "http://nominatim.openstreetmap.org/search",
 		dataType: 'jsonp',
 		jsonpCallback: 'data',
-		data: {format: "json", limit: 1,country: "Canada",json_callback: 'data' },
+		data: {format: "json", limit: 1,country: "Canada",json_callback: 'data', polygon_geojson:1 },
 		error: function(xhr, status, error) {
 		alert("ERROR "+error);
 		},
@@ -67,11 +97,19 @@ $.ajax({
 			marker.openPopup();
 			country = data[0].display_name;
 			lat = data[0].lat;
-			long = data[0].lon;
-			if(lat != null && long != null){
+			longi = data[0].lon;
+			
+			if (layer != null){
+				map.removeLayer(layer);
+			}
+
+			geojson = L.geoJson(data[0].geojson);
+			layer =geojson.addTo(map); //nouvelle ligne détourage
+			
+			if(lat != null && longi != null){
 				desc.innerHTML = "Pays: " + country;
 				desc.innerHTML += "<br/> Latitude: " + lat;
-				desc.innerHTML += "<br/> Longitude: " + long;
+				desc.innerHTML += "<br/> Longitude: " + longi;
 			}
 		}
 	});
@@ -83,7 +121,7 @@ $.ajax({
 		url: "http://nominatim.openstreetmap.org/search",
 		dataType: 'jsonp',
 		jsonpCallback: 'data',
-		data: {format: "json", limit: 1,country: "Italie",json_callback: 'data' },
+		data: {format: "json", limit: 1,country: "Italie",json_callback: 'data', polygon_geojson:1 },
 		error: function(xhr, status, error) {
 		alert("ERROR "+error);
 		},
@@ -94,11 +132,19 @@ $.ajax({
 			marker.openPopup();
 			country = data[0].display_name;
 			lat = data[0].lat;
-			long = data[0].lon;
-			if(lat != null && long != null){
+			longi = data[0].lon;
+			
+			if (layer != null){
+				map.removeLayer(layer);
+			}
+			
+			geojson = L.geoJson(data[0].geojson);
+			layer =geojson.addTo(map); //nouvelle ligne détourage
+			
+			if(lat != null && longi != null){
 				desc.innerHTML = "Pays: " + country;
 				desc.innerHTML += "<br/> Latitude: " + lat;
-				desc.innerHTML += "<br/> Longitude: " + long;
+				desc.innerHTML += "<br/> Longitude: " + longi;
 			}
 		}
 	});
@@ -110,7 +156,7 @@ $.ajax({
 		url: "http://nominatim.openstreetmap.org/search",
 		dataType: 'jsonp',
 		jsonpCallback: 'data',
-		data: {format: "json", limit: 1,country: "Belgique",json_callback: 'data' },
+		data: {format: "json", limit: 1,country: "Belgique",json_callback: 'data', polygon_geojson:1 },
 		error: function(xhr, status, error) {
 		alert("ERROR "+error);
 		},
@@ -122,10 +168,18 @@ $.ajax({
 			country = data[0].display_name;
 			lat = data[0].lat;
 			long = data[0].lon;
-			if(lat != null && long != null){
+			
+			if (layer != null){
+				map.removeLayer(layer);
+			}
+
+			geojson = L.geoJson(data[0].geojson);
+			layer =geojson.addTo(map); //nouvelle ligne détourage
+			
+			if(lat != null && longi != null){
 				desc.innerHTML = "Pays: " + country;
 				desc.innerHTML += "<br/> Latitude: " + lat;
-				desc.innerHTML += "<br/> Longitude: " + long;
+				desc.innerHTML += "<br/> Longitude: " + longi;
 			}
 		}
 	});
@@ -137,7 +191,7 @@ $.ajax({
 		url: "http://nominatim.openstreetmap.org/search",
 		dataType: 'jsonp',
 		jsonpCallback: 'data',
-		data: {format: "json", limit: 1,country: "Japon",json_callback: 'data' },
+		data: {format: "json", limit: 1,country: "Japon",json_callback: 'data', polygon_geojson:1 },
 		error: function(xhr, status, error) {
 		alert("ERROR "+error);
 		},
@@ -148,11 +202,19 @@ $.ajax({
 			marker.openPopup();
 			country = data[0].display_name;
 			lat = data[0].lat;
-			long = data[0].lon;
-			if(lat != null && long != null){
+			longi = data[0].lon;
+			
+			if (layer != null){
+				map.removeLayer(layer);
+			}
+
+			geojson = L.geoJson(data[0].geojson);
+			layer =geojson.addTo(map); //nouvelle ligne détourage
+			
+			if(lat != null && longi != null){
 				desc.innerHTML = "Pays: " + country;
 				desc.innerHTML += "<br/> Latitude: " + lat;
-				desc.innerHTML += "<br/> Longitude: " + long;
+				desc.innerHTML += "<br/> Longitude: " + longi;
 			}
 		}
 	});}
@@ -175,30 +237,26 @@ $.ajax({
 		dataType: 'jsonp',
 		jsonpCallback: 'data',
 		data: {format: "json", limit: 1, lat: latL,
-		lon:longL, json_callback: 'data' },
+		lon:longL, json_callback: 'data'},
 		error: function(xhr, status, error) {
 		alert("ERROR "+error);
 		},
 		success: function(data){
-			country = data.address.country;
+			country = data.display_name;
 			lat = data.lat;
-			long = data.lon;
-			map.setView([lat, long],5);
+			lon = data.lon;
+			map.setView([lat, lon],5);
 			marker.setLatLng([latL, longL]);
-			if(lat != null && long != null){
-				if(country != undefined){
-					marker.bindPopup(country);
-					marker.openPopup();
-					desc.innerHTML = "Pays: " + country;
-					desc.innerHTML += "<br/> Latitude: " + lat;
-					desc.innerHTML += "<br/> Longitude: " + long;
-				}
-				else{
-					marker.bindPopup(data.display_name);
-					marker.openPopup();
-					desc.innerHTML = "Latitude: " + lat;
-					desc.innerHTML += "<br/> Longitude: " + long;
-				}
+			marker.bindPopup(country);
+			marker.openPopup();
+			
+			
+			
+			if(lat != null && longi != null){
+				desc.innerHTML = "Pays: " + country;
+				desc.innerHTML += "<br/> Latitude: " + lat;
+				desc.innerHTML += "<br/> Longitude: " + longi;
+				
 			}
 			
 		}
